@@ -1,4 +1,4 @@
-package com.selcannarin.rijksamsterdammuseumapp
+package com.selcannarin.rijksamsterdammuseumapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

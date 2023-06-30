@@ -1,4 +1,4 @@
-package com.selcannarin.rijksamsterdammuseumapp
+package com.selcannarin.rijksamsterdammuseumapp.ui.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
