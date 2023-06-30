@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface MuseumApiService {
 
-    @GET("en/collection?imgonly=true&ps=40")
+    @GET("en/collection?imgonly=true&ps=50")
     suspend fun fetchArtObject(
         @Query("key") api_key: String = API_KEY
     ): Response<ArtObjectResponse>
