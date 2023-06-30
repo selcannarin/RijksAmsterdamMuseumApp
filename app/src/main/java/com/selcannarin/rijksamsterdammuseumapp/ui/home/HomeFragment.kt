@@ -38,11 +38,14 @@ class HomeFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             homeViewModel.getArtObject()
             homeViewModel.artObjectState.collect {
-                //  if (it.isLoading) { }
-
-                if (it.artObjectList?.artObjects?.isNotEmpty() == true) {
+                if (it.isLoading) {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+                else if (it.artObjectList?.artObjects?.isNotEmpty() == true) {
+                    binding.progressBar.visibility = View.GONE
                     initRecycler(it.artObjectList.artObjects)
                 } else {
+                    binding.progressBar.visibility = View.GONE
                     Toast.makeText(context, "No Data Found", Toast.LENGTH_SHORT).show()
                 }
             }
