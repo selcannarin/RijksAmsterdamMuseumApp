@@ -2,6 +2,7 @@ package com.selcannarin.rijksamsterdammuseumapp.data.model.artobjectdetail
 
 
 import com.google.gson.annotations.SerializedName
+import com.selcannarin.rijksamsterdammuseumapp.data.model.artobject.WebImage
 
 data class ArtObjectX(
 
@@ -26,6 +27,8 @@ data class ArtObjectX(
     @SerializedName("techniques")
     val techniques: List<Any>,
     @SerializedName("title")
-    val title: String
+    val title: String,
+    @SerializedName("webImage")
+    val webImage: WebImage
 
 )
