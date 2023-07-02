@@ -1,8 +1,7 @@
 package com.selcannarin.rijksamsterdammuseumapp.data.repository
 
 import com.selcannarin.rijksamsterdammuseumapp.data.datasource.RemoteMuseumDataSource
-import com.selcannarin.rijksamsterdammuseumapp.data.datasource.RemoteMuseumDataSourceImpl
-import com.selcannarin.rijksamsterdammuseumapp.data.model.ArtObjectResponse
+import com.selcannarin.rijksamsterdammuseumapp.data.model.artobject.ArtObjectResponse
 import com.selcannarin.rijksamsterdammuseumapp.data.remote.NetworkResult
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

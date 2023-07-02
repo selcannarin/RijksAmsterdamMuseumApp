@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.selcannarin.rijksamsterdammuseumapp.adapter.ArtObjectAdapter
-import com.selcannarin.rijksamsterdammuseumapp.data.model.ArtObject
+import com.selcannarin.rijksamsterdammuseumapp.data.model.artobject.ArtObject
 import com.selcannarin.rijksamsterdammuseumapp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

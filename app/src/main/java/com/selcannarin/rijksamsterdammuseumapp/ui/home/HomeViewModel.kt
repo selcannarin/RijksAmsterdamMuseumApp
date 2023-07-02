@@ -1,7 +1,7 @@
 package com.selcannarin.rijksamsterdammuseumapp.ui.home
 
 import android.app.Application
-import com.selcannarin.rijksamsterdammuseumapp.data.model.MuseumViewState
+import com.selcannarin.rijksamsterdammuseumapp.data.model.viewstate.MuseumViewState
 import com.selcannarin.rijksamsterdammuseumapp.data.remote.NetworkResult
 import com.selcannarin.rijksamsterdammuseumapp.data.repository.MuseumRepository
 import com.selcannarin.rijksamsterdammuseumapp.ui.BaseViewModel

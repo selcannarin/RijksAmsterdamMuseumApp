@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.selcannarin.rijksamsterdammuseumapp.R
-import com.selcannarin.rijksamsterdammuseumapp.data.model.ArtObject
+import com.selcannarin.rijksamsterdammuseumapp.data.model.artobject.ArtObject
 import com.selcannarin.rijksamsterdammuseumapp.databinding.ItemArtobjectBinding
 import com.selcannarin.rijksamsterdammuseumapp.util.loadUrl
 
