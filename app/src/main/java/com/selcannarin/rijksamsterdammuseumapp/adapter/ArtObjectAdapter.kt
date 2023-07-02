@@ -12,7 +12,8 @@ import com.selcannarin.rijksamsterdammuseumapp.databinding.ItemArtobjectBinding
 import com.selcannarin.rijksamsterdammuseumapp.util.loadUrl
 
 class ArtObjectAdapter(
-    private val artObjectList: List<ArtObject>
+    private val artObjectList: List<ArtObject>,
+    private val onClickListener: OnClickListener
 ) : ListAdapter<ArtObject, ArtObjectAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,6 +30,9 @@ class ArtObjectAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(artObjectList[position])
+        holder.itemView.setOnClickListener {
+            onClickListener.clickListener(artObjectList[position])
+        }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -49,5 +53,9 @@ class ArtObjectAdapter(
         override fun areContentsTheSame(oldItem: ArtObject, newItem: ArtObject): Boolean {
             return oldItem == newItem
         }
+    }
+
+    class OnClickListener(val clickListener: (artObjectList: ArtObject) -> Unit) {
+        fun onClick(artObject: ArtObject) = clickListener(artObject)
     }
 }
