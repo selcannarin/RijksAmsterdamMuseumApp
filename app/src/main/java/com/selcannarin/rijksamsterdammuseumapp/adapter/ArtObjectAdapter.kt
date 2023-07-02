@@ -31,15 +31,15 @@ class ArtObjectAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(artObjectList[position])
         holder.itemView.setOnClickListener {
-            onClickListener.clickListener(artObjectList[position])
+            onClickListener.clickListener(artObjectList[position].objectNumber)
         }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemArtobjectBinding.bind(itemView)
         fun bind(artObject: ArtObject) {
-            binding.textViewArtist.text = artObject.principalOrFirstMaker
-            binding.textViewArtworkTitle.text = artObject.title
+            binding.textViewArtist.text = "Maker: ${artObject.principalOrFirstMaker}"
+            binding.textViewArtworkTitle.text = "Title: ${artObject.title}"
             artObject.webImage.let { binding.imageViewArtwork.loadUrl(it.url) }
 
         }
@@ -55,7 +55,7 @@ class ArtObjectAdapter(
         }
     }
 
-    class OnClickListener(val clickListener: (artObjectList: ArtObject) -> Unit) {
-        fun onClick(artObject: ArtObject) = clickListener(artObject)
+    class OnClickListener(val clickListener: (artObjectNumber: String) -> Unit) {
+        fun onClick(artObjectNumber: String) = clickListener(artObjectNumber)
     }
 }
