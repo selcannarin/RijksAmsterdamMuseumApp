@@ -8,17 +8,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.selcannarin.rijksamsterdammuseumapp.adapter.ArtObjectAdapter
 import com.selcannarin.rijksamsterdammuseumapp.data.model.artobject.ArtObject
 import com.selcannarin.rijksamsterdammuseumapp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
@@ -40,8 +36,7 @@ class HomeFragment : Fragment() {
             homeViewModel.artObjectState.collect {
                 if (it.isLoading) {
                     binding.progressBar.visibility = View.VISIBLE
-                }
-                else if (it.artObjectList?.artObjects?.isNotEmpty() == true) {
+                } else if (it.artObjectList?.artObjects?.isNotEmpty() == true) {
                     binding.progressBar.visibility = View.GONE
                     initRecycler(it.artObjectList.artObjects)
                 } else {
@@ -54,7 +49,10 @@ class HomeFragment : Fragment() {
 
     private fun initRecycler(list: List<ArtObject>) {
         binding.rvArtobjects.apply {
-            adapter = ArtObjectAdapter(list)
+            adapter = ArtObjectAdapter(list, ArtObjectAdapter.OnClickListener {
+                val action = HomeFragmentDirections.homeToDetail(it)
+                findNavController().navigate(action)
+            })
         }
 
     }

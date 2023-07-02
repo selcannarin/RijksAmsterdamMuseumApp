@@ -9,7 +9,12 @@ app:startDestination="@id/homeFragment">
     android:id="@+id/detailFragment"
     android:name="com.selcannarin.rijksamsterdammuseumapp.ui.detail.DetailFragment"
     android:label="fragment_detail"
-    tools:layout="@layout/fragment_detail" />
+    tools:layout="@layout/fragment_detail" >
+    <argument
+        android:name="objectNumber"
+        app:argType="string"
+        android:defaultValue="0" />
+</fragment>
 <fragment
     android:id="@+id/homeFragment"
     android:name="com.selcannarin.rijksamsterdammuseumapp.ui.home.HomeFragment"
