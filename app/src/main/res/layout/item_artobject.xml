@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/md_theme_light_surface"
-    app:cardCornerRadius="4dp"
+    app:cardBackgroundColor="@color/md_theme_light_inverseOnSurface"
+    app:cardCornerRadius="16dp"
     app:cardElevation="4dp"
     app:contentPadding="8dp">
 
@@ -23,34 +23,32 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewArtist"
+            android:id="@+id/textViewTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Artist Name"
-            android:textColor="#500E18"
+            android:text="Title"
+            android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/textViewArtworkTitle"
+            app:layout_constraintBottom_toTopOf="@id/textViewMaker"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageViewArtwork"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/textViewArtworkTitle"
+            android:id="@+id/textViewMaker"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:text="Artwork Title"
-            android:textColor="#500E18"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:text="Maker"
+            android:textColor="@color/md_theme_dark_background"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewArtist" />
+            app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

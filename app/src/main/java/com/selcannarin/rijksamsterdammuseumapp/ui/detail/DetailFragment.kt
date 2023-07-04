@@ -19,7 +19,7 @@ class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
     private val detailViewModel: DetailViewModel by viewModels()
-    val args: DetailFragmentArgs by navArgs()
+    private val args: DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,19 +45,18 @@ class DetailFragment : Fragment() {
                     with(binding) {
                         textViewLongTitle.text = "Long Title: ${artObjectX.longTitle}"
                         textViewTitle.text = artObjectX.title
-                        textViewDating.text = "Dating: ${artObjectX.dating.presentingDate}"
-                        textViewMaterials.text =
-                            "Materials: ${artObjectX.materials.joinToString(", ")}"
+                        textViewDating.text =
+                            "Dating: ${artObjectX.dating.presentingDate ?: "Unknown"}"
+                        textViewMaterials.text = "Materials: ${formatList(artObjectX.materials)}"
                         textViewObjectTypes.text =
-                            "Object Types: ${artObjectX.objectTypes.joinToString(", ")}"
+                            "Object Types: ${formatList(artObjectX.objectTypes)}"
                         textViewObjectCollection.text =
-                            "Object Collection: ${artObjectX.objectCollection.joinToString(", ")}"
+                            "Object Collection: ${formatList(artObjectX.objectCollection)}"
                         textViewPrincipalMaker.text =
                             "Principal Maker: ${artObjectX.principalMaker}"
                         textViewProductionPlaces.text =
-                            "Production Places: ${artObjectX.productionPlaces.joinToString(", ")}"
-                        textViewTechniques.text =
-                            "Techniques: ${artObjectX.techniques.joinToString(", ")}"
+                            "Production Places: ${formatList(artObjectX.productionPlaces)}"
+                        textViewTechniques.text = "Techniques: ${formatList(artObjectX.techniques as List<String>)}"
 
                         artObjectX.webImage.let { imageView.loadUrl(artObjectX.webImage.url) }
                     }
@@ -67,6 +66,14 @@ class DetailFragment : Fragment() {
 
                 }
             }
+        }
+    }
+
+    private fun formatList(list: List<String>): String {
+        return if (list.isNotEmpty()) {
+            list.joinToString(", ")
+        } else {
+            "Unknown"
         }
     }
 

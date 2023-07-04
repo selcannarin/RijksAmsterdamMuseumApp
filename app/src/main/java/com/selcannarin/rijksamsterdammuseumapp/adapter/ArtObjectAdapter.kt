@@ -38,8 +38,8 @@ class ArtObjectAdapter(
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemArtobjectBinding.bind(itemView)
         fun bind(artObject: ArtObject) {
-            binding.textViewArtist.text = "Maker: ${artObject.principalOrFirstMaker}"
-            binding.textViewArtworkTitle.text = "Title: ${artObject.title}"
+            binding.textViewMaker.text = "Maker: ${artObject.principalOrFirstMaker}"
+            binding.textViewTitle.text = artObject.title
             artObject.webImage.let { binding.imageViewArtwork.loadUrl(it.url) }
 
         }
